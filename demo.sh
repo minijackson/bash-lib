@@ -3,8 +3,8 @@
 readonly BASH_LIB_NAME=DEMO
 source ./bash-lib.sh
 
-# Set `DEMO_DEBUG=1` to enable debug messages
-# Set `DEMO_DEBUG=2` to enable trace messages
+# Set `DEMO_LOG=1` to enable debug messages
+# Set `DEMO_LOG=2` to enable trace messages
 
 trace "this is a trace message" "with additional data"
 debug "this is a debugging message" "with additional data"

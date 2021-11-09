@@ -30,14 +30,14 @@ readonly CYAN
 WHITE="$(tput setaf 7)"
 readonly WHITE
 
-readonly BASH_LIB_DEBUG_VAR="${BASH_LIB_NAME:-BASH}_DEBUG"
+readonly BASH_LIB_LOG_VAR="${BASH_LIB_NAME:-BASH}_LOG"
 
 is_debug() {
-	[ "${!BASH_LIB_DEBUG_VAR:-0}" -ge 1 ]
+	[ "${!BASH_LIB_LOG_VAR:-0}" -ge 1 ]
 }
 
 is_trace() {
-	[ "${!BASH_LIB_DEBUG_VAR:-0}" -ge 2 ]
+	[ "${!BASH_LIB_LOG_VAR:-0}" -ge 2 ]
 }
 
 declare -a VERBOSE_ARG
@@ -89,7 +89,7 @@ error() {
 critical() {
 	error "$@"
 	# Useful for triggering the error trap system
-	false
+	return 1
 }
 
 fatal() {
