@@ -11,23 +11,32 @@ tput() {
 }
 
 NORMAL="$(tput sgr0)"
+# shellcheck disable=SC2034
 readonly NORMAL
 BOLD="$(tput bold)"
+# shellcheck disable=SC2034
 readonly BOLD
 
 RED="$(tput setaf 1)"
+# shellcheck disable=SC2034
 readonly RED
 GREEN="$(tput setaf 2)"
+# shellcheck disable=SC2034
 readonly GREEN
 YELLOW="$(tput setaf 3)"
+# shellcheck disable=SC2034
 readonly YELLOW
 BLUE="$(tput setaf 4)"
+# shellcheck disable=SC2034
 readonly BLUE
 PURPLE="$(tput setaf 5)"
+# shellcheck disable=SC2034
 readonly PURPLE
 CYAN="$(tput setaf 6)"
+# shellcheck disable=SC2034
 readonly CYAN
 WHITE="$(tput setaf 7)"
+# shellcheck disable=SC2034
 readonly WHITE
 
 readonly BASH_LIB_LOG_VAR="${BASH_LIB_NAME:-BASH}_LOG"
@@ -46,6 +55,7 @@ if is_debug; then
 else
 	VERBOSE_ARG=()
 fi
+# shellcheck disable=SC2034
 readonly VERBOSE_ARG
 
 echoe() {
@@ -57,7 +67,7 @@ log() {
 	local color="$2"
 	local message="$3"
 	shift 3
-	local rest="$@"
+	local -a rest=("$@")
 
 	echoe "${BOLD}${color}${level} ${WHITE}${message}${NORMAL}" "${rest[@]}"
 }
