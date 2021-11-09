@@ -46,6 +46,10 @@ error. This is useful if you want to handle your errors with traps. See the
 
 ## Provided variables
 
+- `${VERBOSE_ARG}`: an array variable which is `("--verbose")` when debug
+	messages are enabled, `()` otherwise. Use it by adding `${VERBOSE_ARG[@]}` in
+	programs supporting the `--verbose` flag.
+
 ### Escape codes
 
 - `${NORMAL}`: reset the styling
